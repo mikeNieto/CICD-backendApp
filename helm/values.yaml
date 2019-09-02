@@ -5,18 +5,18 @@
 replicaCount: 1
 
 image:
-  repository: mikenieto/cicd-backendapp
-  tag: stable
+  repository: mikenieto/backendapp
+  tag: latest
   pullPolicy: IfNotPresent
 
-containerPort: 8082
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
 service:
   type: ClusterIP
-  port: 18082
+  port: 80
+  targetPort: 8082
 
 ingress:
   enabled: false
