@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'make start'
+        sh 'make build'
       }
     }
     stage('Push') {
