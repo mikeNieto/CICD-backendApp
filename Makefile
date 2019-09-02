@@ -1,6 +1,6 @@
 run: stop start
 
-build:
+docker:
 	gradle clean bootJar; \
 	docker build -t mikenieto/backendapp .
 
