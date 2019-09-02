@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'make build'
+        sh 'make docker'
       }
     }
     stage('Push') {
