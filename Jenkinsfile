@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'mikenieto/backendapp'
+    }
+
+  }
   stages {
     stage('Clone') {
       steps {
