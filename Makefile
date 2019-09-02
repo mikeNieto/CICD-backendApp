@@ -1,5 +1,9 @@
 run: stop start
 
+build:
+	gradle clean bootJar; \
+	docker build -t mikenieto/backendapp .
+
 stop:
 	docker stop backTest; \
 	docker rm backTest
