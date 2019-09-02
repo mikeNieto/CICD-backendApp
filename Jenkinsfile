@@ -1,7 +1,7 @@
 pipeline {
   agent {
-    docker {
-      image 'mikenieto/backendapp'
+    node {
+      label 'master'
     }
 
   }
