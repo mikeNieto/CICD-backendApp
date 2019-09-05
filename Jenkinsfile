@@ -1,13 +1,9 @@
 pipeline {
-  agent {
-    docker {
-      image 'gradle'
-    }
-
-  }
+  agent any
   stages {
     stage('Clone') {
       steps {
+        sh 'docker ps'
         git(url: 'https://github.com/mikeNieto/CICD-backendApp.git', branch: 'master')
       }
     }
