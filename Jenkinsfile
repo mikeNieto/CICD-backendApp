@@ -1,20 +1,15 @@
 pipeline {
-  agent {
-    docker {
-      image 'helm'
-    }
-
-  }
+  agent any
   stages {
     stage('Clone') {
       steps {
-        sh 'docker ps'
+        sh 'sudo docker ps'
         git(url: 'https://github.com/mikeNieto/CICD-backendApp.git', branch: 'master')
       }
     }
     stage('Build') {
       steps {
-        sh 'make docker'
+        sh 'sudo make docker'
       }
     }
     stage('Push') {
