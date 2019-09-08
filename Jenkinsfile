@@ -9,7 +9,7 @@ pipeline {
     stage('Clone') {
       steps {
         git(url: 'https://github.com/mikeNieto/CICD-backendApp.git', branch: 'master')
-        sh 'sdk list gradle'
+        sh 'ls -la /home/jenkins/'
       }
     }
     stage('Build') {
