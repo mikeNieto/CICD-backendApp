@@ -3,13 +3,13 @@ pipeline {
   stages {
     stage('Clone') {
       steps {
-        sh 'sudo docker ps'
+        sh 'docker ps -a'
         git(url: 'https://github.com/mikeNieto/CICD-backendApp.git', branch: 'master')
       }
     }
     stage('Build') {
       steps {
-        sh 'sudo make docker'
+        sh 'make docker'
       }
     }
     stage('Push') {
