@@ -11,6 +11,7 @@ echo $BUILD_ID
 echo $BRANCH_NAME
 '''
         sh 'env'
+        sh 'whoami'
       }
     }
     stage('Build') {
