@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'mikenieto/jenkins-slave'
-    }
-
-  }
+  agent any
   stages {
     stage('Clone') {
       steps {
