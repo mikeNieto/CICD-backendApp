@@ -17,6 +17,7 @@ echo $BRANCH_NAME
     }
     stage('Build') {
       steps {
+        sh 'whoami'
         sh 'gradle --version'
         sh 'make docker'
       }
