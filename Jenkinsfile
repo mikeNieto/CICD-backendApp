@@ -10,6 +10,7 @@ echo $GIT_BRANCH
 echo $BUILD_ID
 echo $BRANCH_NAME
 '''
+        sh 'env'
       }
     }
     stage('Build') {
