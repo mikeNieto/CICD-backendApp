@@ -13,6 +13,7 @@ echo $BRANCH_NAME
         sh 'env'
         sh 'whoami'
         sh 'kubectl get nodes'
+        sh 'sdk list'
       }
     }
     stage('Build') {
