@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'mikenieto/jenkins-slave'
+    }
+
+  }
   stages {
     stage('Clone') {
       steps {
@@ -13,12 +18,6 @@ echo $BRANCH_NAME
       }
     }
     stage('Build') {
-      agent {
-        docker {
-          image 'mikenieto/jenkins-slave'
-        }
-
-      }
       steps {
         sh 'gradle --version'
         sh 'make docker'
