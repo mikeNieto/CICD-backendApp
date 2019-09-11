@@ -33,8 +33,4 @@ echo $BRANCH_NAME
       }
     }
   }
-  environment {
-    registry = 'mikenieto/backendapp'
-    registryCredential = 'dockerhub'
-  }
 }
