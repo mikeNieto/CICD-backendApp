@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Helm') {
       steps {
-        sh 'helm upgrade --install helm/'
+        sh 'helm upgrade backendApp --install helm/'
       }
     }
   }
