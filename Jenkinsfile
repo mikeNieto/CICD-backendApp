@@ -17,21 +17,21 @@ echo $BRANCH_NAME
     }
     stage('Build') {
       steps {
-        withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
-          sh 'make docker'
-          sh 'whoami'
-          sh 'gradle --version'
-        }
+        sh 'make docker'
+        sh 'whoami'
+        sh 'gradle --version'
       }
     }
     stage('Push') {
       steps {
-        sh 'docker push mikenieto/backendapp'
+        withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
+          sh 'docker push mikenieto/backendapp'
+        }
       }
     }
     stage('Helm') {
       steps {
-        sh 'helm install helm/'
+        sh 'helm upgrade --install helm/'
       }
     }
   }
