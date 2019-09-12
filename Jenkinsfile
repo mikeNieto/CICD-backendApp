@@ -11,15 +11,15 @@ pipeline {
         docker {
           image 'gradle'
         }
-
       }
       steps {
-        sh 'make docker'
+        sh 'gradle clean bootJar'
       }
     }
     stage('Push') {
       steps {
         withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
+          sh 'docker build -t mikenieto/backendapp .'
           sh 'docker push mikenieto/backendapp'
         }
       }
