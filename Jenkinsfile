@@ -7,15 +7,19 @@ pipeline {
       }
     }
     stage('Build') {
+      agent {
+        docker {
+          image 'gradle'
+        }
+
+      }
       steps {
         sh 'make docker'
       }
     }
     stage('Push') {
       steps {
-        withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
-          sh 'docker push mikenieto/backendapp'
-        }
+        echo 'push'
       }
     }
     stage('Helm') {
