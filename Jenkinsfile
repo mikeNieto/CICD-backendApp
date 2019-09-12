@@ -7,11 +7,6 @@ pipeline {
       }
     }
     stage('Build') {
-      agent {
-        docker {
-          image 'gradle'
-        }
-      }
       steps {
         sh 'gradle clean bootJar'
       }
