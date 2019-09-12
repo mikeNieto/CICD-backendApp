@@ -19,7 +19,9 @@ pipeline {
     }
     stage('Push') {
       steps {
-        echo 'push'
+        withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
+          sh 'docker push mikenieto/backendapp'
+        }
       }
     }
     stage('Helm') {
