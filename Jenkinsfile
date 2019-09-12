@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Helm') {
       steps {
-        sh 'helm upgrade backendapp --install ./backendapp'
+        sh 'helm upgrade backendapp --namespace apps --install ./backendapp'
       }
     }
   }
