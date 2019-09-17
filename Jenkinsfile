@@ -8,15 +8,13 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh './gradlew bootJar'
+        sh 'gradle bootJar'
       }
     }
     stage('Push') {
       steps {
-        //withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
-          sh 'docker build -t mikenieto/backendapp .'
-          sh 'docker push mikenieto/backendapp'
-        //}
+        sh 'docker build -t mikenieto/backendapp .'
+        sh 'docker push mikenieto/backendapp'
       }
     }
     stage('Helm') {
