@@ -9,7 +9,7 @@ pipeline {
     stage('Build') {
       steps {
         //sh 'gradle bootJar --no-daemon'
-        sh 'build'
+        sh echo 'build'
       }
     }
     stage('Push') {
