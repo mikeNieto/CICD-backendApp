@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'gradle bootJar'
+        sh 'gradlew bootJar'
       }
     }
     stage('Push') {
