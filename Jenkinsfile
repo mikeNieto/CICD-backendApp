@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('Clone') {
       steps {
-        input 'Deploy to Prod'
         git(url: 'https://github.com/mikeNieto/CICD-backendApp.git', branch: 'master')
       }
     }
@@ -23,6 +22,7 @@ pipeline {
     }
     stage('Helm') {
       steps {
+        input 'Deploy to Prod'
         sh 'helm upgrade backendapp --namespace apps --install ./backendapp'
       }
     }
