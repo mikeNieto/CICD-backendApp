@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('Clone') {
       steps {
-        git(url: 'https://github.com/mikeNieto/CICD-backendApp.git', branch: 'master')
         input 'Deploy to Prod'
+        git(url: 'https://github.com/mikeNieto/CICD-backendApp.git', branch: 'master')
       }
     }
     stage('Build') {
