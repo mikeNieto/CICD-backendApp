@@ -13,8 +13,10 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker build -t mikenieto/backendapp .'
-        sh 'docker push mikenieto/backendapp'
+        docker.withRegistry('', 'docker-hub-credentials') {
+          sh 'docker build -t mikenieto/backendapp .'
+          sh 'docker push mikenieto/backendapp'
+        }
       }
     }
     stage('Helm') {
