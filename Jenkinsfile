@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'gradlew bootJar --no-daemon'
+        sh './gradlew bootJar --no-daemon'
       }
     }
     stage('Push') {
