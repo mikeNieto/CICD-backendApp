@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "https://hub.docker.com/" ]) {
+        withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "https://index.docker.io/v1/" ]) {
           sh 'docker build -t mikenieto/backendapp .'
           sh 'docker push mikenieto/backendapp'
         }
