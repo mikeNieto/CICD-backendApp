@@ -6,6 +6,10 @@ metadata:
 {{ include "CICD-backendApp.labels" . | indent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ include "CICD-backendApp.name" . }}
@@ -38,3 +42,10 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
     {{- end }}
+      readinessProbe:
+        httpGet:
+          path: /
+          port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
